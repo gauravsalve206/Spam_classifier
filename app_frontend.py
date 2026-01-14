@@ -5,6 +5,16 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    nltk.download('punkt_tab')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 tfidf=pkl.load(open('vectorizer.pkl','rb'))
 mnb=pkl.load(open('model.pkl','rb'))
